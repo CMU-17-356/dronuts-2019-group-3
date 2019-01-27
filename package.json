@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/CMU-17-356/dronuts-2019-group-3/issues"
   },
-  "homepage": "https://github.com/CMU-17-356/dronuts-2019-group-3#readme"
+  "homepage": "https://github.com/CMU-17-356/dronuts-2019-group-3#readme",
+  "devDependencies": {
+    "eslint": "^5.12.1"
+  }
 }
