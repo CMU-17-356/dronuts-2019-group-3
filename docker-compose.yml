@@ -3,7 +3,7 @@ services:
 
   dronuts-2019-group-3:
     container_name: dronuts-2019-group-3
-    build: ./Dronuts/
+    build: ./
     ports:
       - "80:80"
     restart: always

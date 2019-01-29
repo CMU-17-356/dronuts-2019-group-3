@@ -5,11 +5,11 @@ MAINTAINER <GROUP_NAME_HERE>
 WORKDIR /usr/src/app
 
 # Install App Dependencies
-COPY package*.json ./
+COPY Dronuts/package*.json ./
 RUN npm install
 
 # Copy App Source
-COPY . .
+COPY Dronuts/ .
 #TODO Run any build scripts here
 
 EXPOSE 80
