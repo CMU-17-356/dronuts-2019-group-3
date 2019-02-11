@@ -38,11 +38,11 @@
   "Message": {
     "dataSource": null
   },
-  "drone": {
+  "Drone": {
     "dataSource": "db",
     "public": true
   },
-  "order": {
+  "Order": {
     "dataSource": "db",
     "public": true
   }
