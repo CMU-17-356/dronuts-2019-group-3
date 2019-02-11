@@ -1,6 +1,8 @@
+require('jest-plugins')(['loopback-jest']);
+var loopback = require('loopback');
+
 describe('basic drone test', () => {
 	test('drone exists and has properties', ( ) => {
-		var loopback = require('loopback');
 	    const drone1 = loopback.createModel({
 	    	name: 'drone',
 	    	properties: {
@@ -8,5 +10,6 @@ describe('basic drone test', () => {
 	    	}
 		});
 		expect(drone1).not.toBeNull();
+		expect(drone1).toHavePropertyOfType('drone_id', String);
 	});
 });
