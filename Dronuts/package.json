@@ -7,7 +7,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start": "node .",
+    "start": "npm run build --prefix client_src/ && node .",
     "test": "jest",
     "posttest": "npm run lint"
   },
