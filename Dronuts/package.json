@@ -18,17 +18,14 @@
     "loopback": "^3.22.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^6.2.0",
-
     "serve-favicon": "^2.0.1",
-    "strong-error-handler": "^3.0.0"
-
+    "strong-error-handler": "^3.0.0",
     "loopback": "^3.22.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.4"
-
   },
   "devDependencies": {
     "eslint": "^3.19.0",
