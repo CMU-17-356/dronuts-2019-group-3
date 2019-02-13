@@ -1,0 +1,53 @@
+{
+  "name": "Order",
+  "plural": "Orders",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "order_id": {
+      "type": "string",
+      "required": true
+    },
+    "user_id": {
+      "type": "string",
+      "required": true
+    },
+    "drone_id": {
+      "type": "string",
+      "required": true
+    },
+    "items": {
+      "type": [
+        "string"
+      ],
+      "required": true
+    },
+    "destination_lat": {
+      "type": "number",
+      "required": true
+    },
+    "destination_lon": {
+      "type": "number",
+      "required": true
+    },
+    "completion_status": {
+      "type": "enum",
+      "required": true
+    },
+    "time_placed": {
+      "type": "date",
+      "required": true
+    },
+    "time_delivered": {
+      "type": "date",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
