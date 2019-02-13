@@ -23,6 +23,13 @@
       "type": "number",
       "required": true,
       "default": 0
+    },
+    "Image": {
+      "type": "binary"
+    },
+    "Description": {
+      "type": "string",
+      "default": "'This is a delicious donut!'"
     }
   },
   "validations": [],

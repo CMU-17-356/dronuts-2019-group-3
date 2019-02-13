@@ -6,8 +6,7 @@ module.exports = function(User) {
     User.validatesFormatOf('email', {with : /\S+@\S+\.\S+/});
     User.validatesUniquenessOf('email');
     //no password validations at the moment
-    User.validatesInclusionOf('role', {in : ["customer", "employee", "admin"], 
+    User.validatesInclusionOf('role', {in : ['customer', 'employee', 'admin'], 
         message: ' must choose from "customer", "employee",  or "admin" '});
 
-    
 };
