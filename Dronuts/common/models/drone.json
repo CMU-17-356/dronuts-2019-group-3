@@ -1,6 +1,6 @@
 {
-  "name": "drone",
-  "plural": "drones",
+  "name": "Drone",
+  "plural": "Drones",
   "base": "Model",
   "idInjection": true,
   "options": {
