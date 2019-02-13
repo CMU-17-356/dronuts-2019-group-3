@@ -38,6 +38,10 @@
   "Message": {
     "dataSource": null
   },
+
+  "Item": {
+    "dataSource" : null
+  },
   "Drone": {
     "dataSource": "db",
     "public": true

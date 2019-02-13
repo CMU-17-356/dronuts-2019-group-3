@@ -1,0 +1,39 @@
+{
+  "name": "Item",
+  "plural": "Items",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "item_id": {
+      "type": "number",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "number",
+      "required": true
+    },
+    "quantity_in_stock": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "Image": {
+      "type": "binary"
+    },
+    "Description": {
+      "type": "string",
+      "default": "'This is a delicious donut!'"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
