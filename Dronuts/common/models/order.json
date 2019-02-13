@@ -37,14 +37,6 @@
       "type": "enum",
       "required": true
     },
-<<<<<<< HEAD
-    "Time_Order_Placed": {
-      "type": "date",
-      "required": true
-    },
-    "Time_Order_Delivered": {
-      "type": "date"
-=======
     "time_placed": {
       "type": "date",
       "required": true
@@ -52,7 +44,6 @@
     "time_delivered": {
       "type": "date",
       "required": false
->>>>>>> 599875f08b605380ae4cf7bffda9815baf42ceeb
     }
   },
   "validations": [],
