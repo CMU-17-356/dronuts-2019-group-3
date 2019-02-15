@@ -14,8 +14,8 @@ env:
     - DOCKER_MACHINE_NAME="dronuts-2019-group-3"
 
 script:
-  - npm test
-  - travis_wait 500 docker-compose build
+# - npm test
+  - docker-compose build
 
 deploy:
   skip_cleanup: true
