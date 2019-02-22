@@ -15,7 +15,7 @@ env:
 
 script:
   - npm test
-  - travis_wait 500 docker-compose build
+  - docker-compose build
 
 deploy:
   skip_cleanup: true
