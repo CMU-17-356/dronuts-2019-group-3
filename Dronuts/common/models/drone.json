@@ -1,16 +1,12 @@
 {
   "name": "Drone",
   "plural": "Drones",
-  "base": "Model",
+  "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "drone_id": {
-      "type": "string",
-      "required": true
-    }
   },
   "validations": [],
   "relations": {},

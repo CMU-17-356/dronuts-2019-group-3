@@ -1,16 +1,12 @@
 {
   "name": "Order",
   "plural": "Orders",
-  "base": "Model",
+  "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "order_id": {
-      "type": "string",
-      "required": true
-    },
     "user_id": {
       "type": "string",
       "required": true
@@ -34,7 +30,7 @@
       "required": true
     },
     "completion_status": {
-      "type": "enum",
+      "type": "string",
       "required": true
     },
     "time_placed": {

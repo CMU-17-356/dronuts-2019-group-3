@@ -14,7 +14,8 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "mongoDS",
+    "public": true
   },
   "AccessToken": {
     "dataSource": "db",
@@ -38,16 +39,16 @@
   "Message": {
     "dataSource": null
   },
-
-  "Item": {
-    "dataSource" : null
-  },
-  "Drone": {
-    "dataSource": "db",
+  "Order": {
+    "dataSource": "mongoDS",
     "public": true
   },
-  "Order": {
-    "dataSource": "db",
+  "Drone": {
+    "dataSource": "mongoDS",
+    "public": true
+  },
+  "Item": {
+    "dataSource": "mongoDS",
     "public": true
   }
 }

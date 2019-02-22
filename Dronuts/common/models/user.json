@@ -1,16 +1,12 @@
 {
   "name": "User",
   "plural": "Users",
-  "base": "Model",
+  "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "user_id": {
-      "type": "number",
-      "required": true
-    },
     "email": {
       "type": "string",
       "required": true
@@ -20,7 +16,7 @@
       "required": true
     },
     "role": {
-      "type": "enum",
+      "type": "string",
       "required": true
     }
   },
