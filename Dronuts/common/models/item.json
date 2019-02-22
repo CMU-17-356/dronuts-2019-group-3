@@ -23,9 +23,6 @@
       "type": "number",
       "required": true
     },
-    "image": {
-      "type": "binary"
-    },
     "description": {
       "type": "string"
     }

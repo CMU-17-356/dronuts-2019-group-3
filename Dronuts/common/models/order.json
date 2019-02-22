@@ -34,7 +34,7 @@
       "required": true
     },
     "completion_status": {
-      "type": "enum",
+      "type": "string",
       "required": true
     },
     "time_placed": {

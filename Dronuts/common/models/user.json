@@ -20,7 +20,7 @@
       "required": true
     },
     "role": {
-      "type": "enum",
+      "type": "string",
       "required": true
     }
   },
