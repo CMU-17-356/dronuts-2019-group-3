@@ -1,14 +1,14 @@
 {
   "name": "Item",
   "plural": "Items",
-  "base": "Model",
+  "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
     "item_id": {
-      "type": "number",
+      "type": "string",
       "required": true
     },
     "name": {
@@ -19,17 +19,15 @@
       "type": "number",
       "required": true
     },
-    "quantity_in_stock": {
+    "quantity": {
       "type": "number",
-      "required": true,
-      "default": 0
+      "required": true
     },
-    "Image": {
+    "image": {
       "type": "binary"
     },
-    "Description": {
-      "type": "string",
-      "default": "'This is a delicious donut!'"
+    "description": {
+      "type": "string"
     }
   },
   "validations": [],

@@ -1,7 +1,7 @@
 {
   "name": "Order",
   "plural": "Orders",
-  "base": "Model",
+  "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true

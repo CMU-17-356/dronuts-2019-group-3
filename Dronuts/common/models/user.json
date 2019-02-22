@@ -1,14 +1,14 @@
 {
   "name": "User",
   "plural": "Users",
-  "base": "Model",
+  "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
     "user_id": {
-      "type": "number",
+      "type": "string",
       "required": true
     },
     "email": {
