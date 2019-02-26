@@ -105,6 +105,7 @@ class Menu extends Component {
     const categories = renderCategories(menu);
 
     return (
+      <div>
       <div className="container-fluid">
         <div className="row">
           <div className="col border">
@@ -132,6 +133,12 @@ class Menu extends Component {
             </div>
           </div>
         </div>
+      </div>
+        <footer className="footer">
+          <div className="container">
+            <span className="text-muted">Dronuts Group 3</span>
+          </div>
+        </footer>
       </div>
     )
   }
