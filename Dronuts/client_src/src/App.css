@@ -1,0 +1,38 @@
+.navbar {
+  background-color: #ef72ac !important;
+}
+
+.mainImg {
+  width: 100%;
+}
+
+.content {
+  overflow-y: scroll;
+}
+
+.footer {
+  text-align: center !important;
+  /*padding: 15px !important;*/
+  color: #000000 !important;
+
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #ef72ac !important;
+}
+
+.about {
+  padding: 5%;
+  text-align: center;
+  background-color: #f4e8ea;
+  color: #663A31;
+}
+
+.location {
+  padding: 10%;
+  text-align: center;
+  background-color: #655243;
+  color: #F4E8EA;
+}

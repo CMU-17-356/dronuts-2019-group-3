@@ -12,6 +12,7 @@
     "posttest": "npm run lint"
   },
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
     "helmet": "^3.10.0",
@@ -20,6 +21,7 @@
     "loopback-component-explorer": "^6.2.0",
     "loopback-connector-mongodb": "^4.0.0",
     "react": "^16.8.1",
+    "react-bootstrap": "^1.0.0-beta.5",
     "react-dom": "^16.8.1",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
