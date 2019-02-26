@@ -1,8 +1,10 @@
 import React from 'react';
 
+import logo from '../../images/dronutbackground.jpg';
+
 const Home = () => (
   <div>
-    <h1>Welcome employee, stop looking at this page and get to work immediately!</h1>
+    <img src={logo} className="mainImg" />
     <footer className="footer">
       <div className="container">
         <span className="text-muted">Dronuts Group 3</span>
