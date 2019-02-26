@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+.padding {
+  padding: 5%;
+}
+
 .content {
   overflow-y: scroll;
 }
