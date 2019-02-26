@@ -5,6 +5,11 @@ class Order extends Component {
     return (
       <div>
         <h1>Sorry, there was an error with your order.</h1>
+        <footer className="footer">
+          <div className="container">
+            <span className="text-muted">Dronuts Group 3</span>
+          </div>
+        </footer>
       </div>
     )
   }
