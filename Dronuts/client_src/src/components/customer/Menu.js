@@ -137,6 +137,7 @@ class Menu extends Component {
     );
 
     return (
+      <div>
       <div className="container-fluid">
         <div className="row">
           <div className="col-8 border text-center">
@@ -154,6 +155,13 @@ class Menu extends Component {
             {cartDom}
           </div>
         </div>
+      </div>
+        <footer className="footer">
+          <div className="container">
+            <span className="text-muted">Dronuts Group 3</span>
+          </div>
+        </footer>
+      
       </div>
     )
   }

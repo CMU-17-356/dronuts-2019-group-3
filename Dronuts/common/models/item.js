@@ -5,5 +5,5 @@ module.exports = function(Item) {
     Item.validatesUniquenessOf('name');
     //Item.valitadesLengthOf('name', {max: 80});
     Item.validatesNumericalityOf('price', {int: false});
-    Item.validatesNumericalityOf('quanitiy_in_stock', {int: true});
+    Item.validatesNumericalityOf('quantity', {int: true});
 };

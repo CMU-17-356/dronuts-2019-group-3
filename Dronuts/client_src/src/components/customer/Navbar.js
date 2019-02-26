@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class Navbar extends Component {
   render(){
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary navbar-fixed-top">
         <a className="navbar-brand" href="/">
           Dronuts
         </a>
@@ -13,14 +13,10 @@ class Navbar extends Component {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link" href="/about">About Us</a>
-            </li>
-            <li className="nav-item">
               <a className="nav-link" href="/menu">Menu</a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/locations">Locations</a>
-            </li>
+          </ul>
+          <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <a className="nav-link" href="/employee">Employee Site</a>
             </li>
