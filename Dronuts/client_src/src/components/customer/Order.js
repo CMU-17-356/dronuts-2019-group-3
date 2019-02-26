@@ -21,7 +21,6 @@ class Order extends React.Component {
             [name] : value
         });
     }
-
     formSubmitHandler(){
         {/*console.log(this.state);*/}
         //Hardcoding the company id as 1 for MVP, could get it from our api
