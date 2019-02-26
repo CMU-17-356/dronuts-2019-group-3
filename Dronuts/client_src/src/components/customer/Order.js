@@ -36,7 +36,8 @@ class Order extends Component {
           </footer>
         </div>
       )
-    }
+    };
+  }
 }
 
 export default Order;
