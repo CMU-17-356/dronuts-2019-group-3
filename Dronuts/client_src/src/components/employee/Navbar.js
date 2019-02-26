@@ -15,6 +15,8 @@ class Navbar extends Component {
             <li className="nav-item">
               <a className="nav-link" href="/employee/menu">Update Menu</a>
             </li>
+          </ul>
+          <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <a className="nav-link" href="/">Customer Site</a>
             </li>
