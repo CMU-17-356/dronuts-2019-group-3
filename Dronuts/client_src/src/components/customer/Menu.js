@@ -35,7 +35,7 @@ function addToCart(item){
     total += cartItem.price * cartItem.quantity
   ));
   total = Math.round(total * 100) / 100
-
+  sessionStorage.setItem('cartTotal', total)
   const cartElem = (
     <div>
       <div className="container-fluid">

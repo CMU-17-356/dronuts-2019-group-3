@@ -3,7 +3,7 @@
 
 module.exports = function(Order) {
     Order.validatesPresenceOf('drone_id', 'user_id', 'items', 'destination_lat', 'destination_lon', 'completion_status', 'time_placed');
-    Order.validatesInclusionOf('completion_status', {in: ['In-Progress', 'Delivered', 'Cancelled']}, {message: 'orders must be In-Progress, Delivered, or Cancelled'});
+    //Order.validatesInclusionOf('completion_status', {in: ['In-Progress', 'Delivered', 'Cancelled']}, {message: 'orders must be In-Progress, Delivered, or Cancelled'});
     Order.validatesNumericalityOf('destination_lat', 'destination_lon', { message: 'lat and long must be numbers'});
 };
 // var orderSchema = {
