@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import logo from '../../images/dronutbackground.jpg';
+<<<<<<< HEAD
 import {Card} from 'react-bootstrap';
+=======
+import {Card, CardColumns} from 'react-bootstrap';
+>>>>>>> 569f8f1
 
 const options = {
   day: 'numeric',
@@ -45,8 +49,9 @@ class Home extends Component {
           <h1>Pending Orders</h1>
         </header>
         <div className="content padding">
+        <CardColumns> 
           {orders.map((order) =>
-          	<Card style={{ width: '20%' }}>
+          	<Card className="p-3" bg="dark" text="white">
 			  <Card.Body>
 			    <Card.Title>Time Placed: {new Intl.DateTimeFormat('en-US', options).format(new Date(order.time_placed))}</Card.Title>
 			    <Card.Subtitle className="mb-2 text-muted">Drone: {order.drone_id}</Card.Subtitle>
@@ -63,6 +68,7 @@ class Home extends Component {
 			  </Card.Body>
 			</Card>
           )}
+        </CardColumns>
         </div>
 
         <footer className="footer">
