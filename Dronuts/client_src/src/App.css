@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+.padding {
+  padding: 5%;
+}
+
 .content {
   overflow-y: scroll;
 }
@@ -35,4 +39,12 @@
   text-align: center;
   background-color: #655243;
   color: #F4E8EA;
+}
+
+.fourthwidth {
+  width: 25%;
+}
+
+.droneImg {
+  padding: 10%;
 }
