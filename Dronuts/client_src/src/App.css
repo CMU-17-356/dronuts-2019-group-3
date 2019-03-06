@@ -12,6 +12,7 @@
 
 .content {
   overflow-y: scroll;
+  margin-bottom: 60px;
 }
 
 .footer {
@@ -46,5 +47,15 @@
 }
 
 .droneImg {
-  padding: 10%;
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+h1 {
+  text-align: center;
+  padding: 5%;
+  background-color: #4a3c31;
+  color: #f4ebea;
 }

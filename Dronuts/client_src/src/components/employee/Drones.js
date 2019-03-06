@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Card, CardGroup, Col} from 'react-bootstrap';
+import {Card, CardDeck, Col} from 'react-bootstrap';
 import droneImg from '../../images/donut.png';
 
 class Drones extends Component {
@@ -38,31 +38,35 @@ class Drones extends Component {
     const { drones } = this.state;
     return (
       <div>
-        <header>
-          <h1>Drone Statuses</h1>
-        </header>
-        <div className="content padding">
-          <CardGroup> 
-            {drones.map((drone) =>
-              <Card className="fourthwidth">
-                <Card.Body>
-                  <Card.Img variant="top" src={droneImg} className="droneImg"/>
-                  <Card.Title>Name: {drone.drone_name} </Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted">ID: {drone.id}</Card.Subtitle>
-                  <Card.Text>
-                  Details:<br/>
-                  Latitude: {drone.location.lat} <br/>
-                  Longitude: {drone.location.lng} <br/>
-                  Current Delivery: {drone.current_delivery} <br/>
-                  Battery Capacity: {drone.battery.capacity} <br/>
-                  Battery Charge: {drone.battery.charge} <br/>
-                  </Card.Text>
-                  <Card.Link href="#">Cancel</Card.Link>
-                  <Card.Link href="#">Complete</Card.Link>
-                </Card.Body>
-              </Card>
-            )}
-          </CardGroup>
+        <div className="content">
+          <header>
+            <h1>Drone Statuses</h1>
+          </header>
+          <br/>
+          <div className="container">
+            <CardDeck> 
+              {drones.map((drone) =>
+                <Card className="fourthwidth">
+                  <Card.Body>
+                    <Card.Img variant="top" src={droneImg} className="droneImg"/>
+                    <Card.Title>Name: {drone.drone_name} </Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">ID: {drone.id}</Card.Subtitle>
+                    <Card.Text>
+                    Details:<br/>
+                    Latitude: {drone.location.lat} <br/>
+                    Longitude: {drone.location.lng} <br/>
+                    Current Delivery: {drone.current_delivery} <br/>
+                    Battery Capacity: {drone.battery.capacity} <br/>
+                    Battery Charge: {drone.battery.charge} <br/>
+                    </Card.Text>
+                    <Card.Link href="#">Cancel Delivery</Card.Link>
+                  </Card.Body>
+                </Card>
+              )}
+            </CardDeck>
+          </div>
+          <br/>
+          <br/>
         </div>
         
 

@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import logo from '../../images/dronutbackground.jpg';
-<<<<<<< HEAD
-import {Card} from 'react-bootstrap';
-=======
 import {Card, CardColumns} from 'react-bootstrap';
->>>>>>> 569f8f1
 
 const options = {
   day: 'numeric',
@@ -45,30 +41,32 @@ class Home extends Component {
     const { orders } = this.state;
     return (
       <div>
-        <header>
-          <h1>Pending Orders</h1>
-        </header>
-        <div className="content padding">
-        <CardColumns> 
-          {orders.map((order) =>
-          	<Card className="p-3" bg="dark" text="white">
-			  <Card.Body>
-			    <Card.Title>Time Placed: {new Intl.DateTimeFormat('en-US', options).format(new Date(order.time_placed))}</Card.Title>
-			    <Card.Subtitle className="mb-2 text-muted">Drone: {order.drone_id}</Card.Subtitle>
-			    <Card.Text>
-			    Items:<br/>
-			    <ul>
-			      {order.items.map((item) => 
-			      	<li>{item}</li>
-			      	)}
-			    </ul>
-			    </Card.Text>
-			    <Card.Link href="#">Cancel</Card.Link>
-			    <Card.Link href="#">Complete</Card.Link>
-			  </Card.Body>
-			</Card>
-          )}
-        </CardColumns>
+        <div className="content">
+          <header>
+            <h1>Pending Orders</h1>
+          </header>
+          <div className="padding">
+            <CardColumns> 
+              {orders.map((order) =>
+                <Card className="p-3" bg="dark" text="white">
+      			     <Card.Body>
+        			    <Card.Title>Time Placed: {new Intl.DateTimeFormat('en-US', options).format(new Date(order.time_placed))}</Card.Title>
+        			    <Card.Subtitle className="mb-2 text-muted">Drone: {order.drone_id}</Card.Subtitle>
+        			    <Card.Text>
+        			    Items:<br/>
+        			    <ul>
+        			      {order.items.map((item) => 
+        			      	<li>{item}</li>
+        			      	)}
+        			    </ul>
+        			    </Card.Text>
+        			    <Card.Link href="#">Cancel</Card.Link>
+        			    <Card.Link href="#">Complete</Card.Link>
+      			     </Card.Body>
+      			   </Card>
+              )}
+            </CardColumns>
+          </div>
         </div>
 
         <footer className="footer">
