@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {CardDeck} from 'react-bootstrap';
-import {Drone} from '../Drone';
+import {Drone} from './more_components/Drone';
 
 
 class Drones extends Component {
   constructor(props) {
     super(props);
-
+    this.loadData = this.loadData.bind(this);
  
     this.state = {
       drones: [],
@@ -15,38 +15,23 @@ class Drones extends Component {
 
   componentDidMount() {
     this.loadData();
-    setInterval(this.loadData, 2000);
+    // setInterval(this.loadData, 2000);
   }
  
   async loadData() {
     try {
-      this.setState({drones: []});
-      fetch('http://drones.17-356.isri.cmu.edu/api/airbases/group3')
-        .then(function(response) {return response.json();})
-        .then(data => {
-          var ids = data.drones;
-          var id;
-          for (id in ids) {
-            console.log(ids[id]);
-            fetch('http://drones.17-356.isri.cmu.edu/api/drones/' + ids[id].toString())
-              .then(function(response) {return response.json();})
-              .then(data => {
-                console.log(data);
-                var newState = this.state.drones.slice();
-                newState.push(data);
-                this.setState({drones: newState});
-            })
-          }
+      const response = await fetch('http://drones.17-356.isri.cmu.edu/api/airbases/group3')
+      const data = await response.json();
 
-        });
-      console.log("call");
-    }catch {
-      console.log("error");
+      this.setState({drones: data.drones});
+        
+      console.log("call "+this.state.drones);
+    }catch (err) {
+      console.log(err);
     }
   }
  
   render() {
-    const { drones } = this.state;
     return (
       <div>
         <div className="content">
@@ -56,8 +41,8 @@ class Drones extends Component {
           <br/>
           <div className="container">
             <CardDeck> 
-              {drones.map((drone) =>
-                <Drone droneInfo={drone} />
+              {this.state.drones.map((drone) =>
+              <Drone droneInfo={drone} />
                 
               )}
             </CardDeck>
