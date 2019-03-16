@@ -1,37 +1,48 @@
 import React, {Component} from 'react';
-import {Card, CardDeck, Col} from 'react-bootstrap';
-import droneImg from '../../images/donut.png';
+import {CardDeck} from 'react-bootstrap';
+import {Drone} from '../Drone';
+
 
 class Drones extends Component {
   constructor(props) {
     super(props);
-    this.componentWillMount = this.componentWillMount.bind(this);
 
  
     this.state = {
       drones: [],
     };
   }
- 
-  componentWillMount() {
-    fetch('http://drones.17-356.isri.cmu.edu/api/airbases/group3')
-      .then(function(response) {return response.json();})
-      .then(data => {
-        var ids = data.drones;
-        var id;
-        for (id in ids) {
-          console.log(ids[id]);
-          fetch('http://drones.17-356.isri.cmu.edu/api/drones/' + ids[id].toString())
-            .then(function(response) {return response.json();})
-            .then(data => {
-              console.log(data);
-              var newState = this.state.drones.slice();
-              newState.push(data);
-              this.setState({drones: newState});
-          })
-        }
 
-      });
+  componentDidMount() {
+    this.loadData();
+    setInterval(this.loadData, 2000);
+  }
+ 
+  async loadData() {
+    try {
+      this.setState({drones: []});
+      fetch('http://drones.17-356.isri.cmu.edu/api/airbases/group3')
+        .then(function(response) {return response.json();})
+        .then(data => {
+          var ids = data.drones;
+          var id;
+          for (id in ids) {
+            console.log(ids[id]);
+            fetch('http://drones.17-356.isri.cmu.edu/api/drones/' + ids[id].toString())
+              .then(function(response) {return response.json();})
+              .then(data => {
+                console.log(data);
+                var newState = this.state.drones.slice();
+                newState.push(data);
+                this.setState({drones: newState});
+            })
+          }
+
+        });
+      console.log("call");
+    }catch {
+      console.log("error");
+    }
   }
  
   render() {
@@ -46,22 +57,8 @@ class Drones extends Component {
           <div className="container">
             <CardDeck> 
               {drones.map((drone) =>
-                <Card className="fourthwidth">
-                  <Card.Body>
-                    <Card.Img variant="top" src={droneImg} className="droneImg"/>
-                    <Card.Title>Name: {drone.drone_name} </Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">ID: {drone.id}</Card.Subtitle>
-                    <Card.Text>
-                    Details:<br/>
-                    Latitude: {drone.location.lat} <br/>
-                    Longitude: {drone.location.lng} <br/>
-                    Current Delivery: {drone.current_delivery} <br/>
-                    Battery Capacity: {drone.battery.capacity} <br/>
-                    Battery Charge: {drone.battery.charge} <br/>
-                    </Card.Text>
-                    <Card.Link href="#">Cancel Delivery</Card.Link>
-                  </Card.Body>
-                </Card>
+                <Drone droneInfo={drone} />
+                
               )}
             </CardDeck>
           </div>
