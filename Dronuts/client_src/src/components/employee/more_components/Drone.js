@@ -5,6 +5,7 @@ import droneImg from '../../../images/donut.png';
 const options = {
   day: 'numeric',
   month: 'long',
+  year: 'numeric',
   weekday: 'short',
   hour: 'numeric',
   minute: 'numeric',
@@ -74,7 +75,7 @@ export class Drone extends Component {
     if (this.state.id) {
       
       return (
-        <Card className="fourthwidth">
+        <Card className="fourthwidth" bg="light">
           <Card.Body>
             <Card.Img variant="top" src={droneImg} className="droneImg"/>
               <Card.Title>Name: {this.state.drone_name} </Card.Title>
@@ -87,7 +88,6 @@ export class Drone extends Component {
               Battery Capacity: {this.state.capacity} <br/>
               Battery Charge: {this.state.charge} <br/>
               </Card.Text>
-              <Card.Link href="#">Cancel Delivery</Card.Link>
           </Card.Body>
         </Card>
       )

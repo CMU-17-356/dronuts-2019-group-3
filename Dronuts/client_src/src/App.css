@@ -59,3 +59,7 @@ h1 {
   background-color: #4a3c31;
   color: #f4ebea;
 }
+
+.rightalign {
+  float: right;
+}
