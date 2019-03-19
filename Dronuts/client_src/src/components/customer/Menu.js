@@ -114,6 +114,7 @@ class Menu extends Component {
       total += cartItem.price * cartItem.quantity
     ));
     total = Math.round(total * 100) / 100
+    sessionStorage.setItem('cartTotal', total);
 
     const cartDom = (
       <div>
