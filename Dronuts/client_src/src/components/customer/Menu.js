@@ -15,7 +15,7 @@ class Menu extends Component {
     axios.get('/api/Items')
       .then(response => {
         this.setState({menu: response.data});
-      })
+      });
 
     if(sessionStorage.getItem('cart')){
       this.setState({cart: JSON.parse(sessionStorage.getItem('cart'))});
@@ -162,7 +162,7 @@ class Menu extends Component {
             <span className="text-muted">Dronuts Group 3</span>
           </div>
         </footer>
-      
+
       </div>
     )
   }
