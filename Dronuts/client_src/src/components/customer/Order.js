@@ -12,8 +12,11 @@ class Order extends React.Component {
             location_lat : 0.0,
             location_lon : 0.0,
             location_string : '',
+            location_display_name : '',
             //it appears as if the credit api only takes in a number as a string
-            card_number : ''
+            card_number : '',
+            customer_name : '',
+            drone_id : '70'
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.formSubmitHandler = this.formSubmitHandler.bind(this);
@@ -25,10 +28,11 @@ class Order extends React.Component {
             return {[name] : value}
         });
     }
-    formSubmitHandler(event){
+    async formSubmitHandler(event){
         {/**/}
         event.preventDefault();
-        
+        var self = this;
+        var transID = '';
         const {location_lat, location_lon, location_string, card_number} = this.state;
         console.log(this.state);
         console.log(card_number);
@@ -37,17 +41,26 @@ class Order extends React.Component {
         axios.post('http://credit.17-356.isri.cmu.edu/api/transactions',{
                 companyId : '1',
                 ammount : sessionStorage.getItem('cartTotal')
-        });{/*.then(response) => {
+        }).then(function(response) {
             console.log(response);
-        };*/}
-        //process transation here
+            transID = response.data.id;
+            console.log(transID);
 
+        }).then(function(){
+            //process transation here
+            axios.post('http://credit.17-356.isri.cmu.edu/api/transactions/'.concat(transID,'/process'),{
+                    id : transID,
+                    customer_details : self.state.customer_name,
+                    credit_card : card_number
+            }).then(function (response){
+                console.log(response);
+            });
+        });
 
-        //probably want to choose drone here 
-        //use 69 as place holder until
+        
 
         //do geocoding here
-        var self = this;
+        
         axios.get('https://us1.locationiq.com/v1/search.php',
             {params: {key : '19855c1a20ede5',
                             q : location_string,
@@ -56,48 +69,80 @@ class Order extends React.Component {
             console.log(response);
             self.setState({location_lat : parseFloat(response.data[0].lat)});
             self.setState({location_lon : parseFloat(response.data[0].lon)});
+            self.setState({location_display_name : response.data[0].display_name});
             console.log(self.state);
+            alert('Your Order to:\n'+self.state.location_display_name+'\nHas Been Placed! \nReturn to the menu to place another.');
+            console.log('pop up should have been made');
         }).catch(function (error){
             console.log(error);
         });
 
-
-
-
-        axios.put('http://drones.17-356.isri.cmu.edu/api/drones/69/send',{
-                id : 69,
+        //probably want to choose drone here 
+        //use 69 as place holder until
+        var dronesAvailible = [];
+        var droneID = 69;
+        axios.get('http://drones.17-356.isri.cmu.edu/api/airbases/team3',{
+                id : 'team3'
+        }).then(function (response){
+            console.log(response);
+            dronesAvailible = response.data.drones;       
+            console.log(dronesAvailible);     
+            dronesAvailible.forEach(async function (drone,currIdx){
+            await axios.get('http://drones.17-356.isri.cmu.edu/api/drones/'.concat(drone),{
+                id : drone
+            })
+            console.log(drone, response.current_delivery);
+            if(response.current_delivery == null || response.current_delivery == undefined ){
+                self.setState({drone_id : drone});
+                console.log("should select this drone", droneID, drone);
+            }
+        
+        })});
+        /*.then(async function(){
+        axios.put('http://drones.17-356.isri.cmu.edu/api/drones/'.concat(droneID.toString().concat('/send')),{
+                id : droneID,
                 lat : location_lat,
                 lon : location_lon
-        });
-    {/*where will user_id ultimatly come from? Should be have them enter their email when ordering? */}
-    {/*do I need another post request to the drone api get the drone ID? */}
-    {/*need to get items from cart */}
-    {/*timestamps to be properly done after MVP stage */}
-        console.log(this.state.location_lat);
-        axios.post('http://localhost:80/api/Orders',{
+        })})*/
+            console.log(sessionStorage.getItem('cart'));
+            var today = new Date();
+            var itemObjs = JSON.parse(sessionStorage.getItem('cart'));
+            console.log(itemObjs);
+            console.log(droneID);
+            var itemNames = itemObjs.map(function(itemObj){
+                        return itemObj.name;
+            });
+            axios.post('http://localhost:80/api/Orders',{
+            
+                      "user_id": self.state.customer_name,
+                      "drone_id": self.state.drone_id,
+                      "items": itemNames,
+                      "destination_lat": self.state.location_lat,
+                      "destination_lon": self.state.location_lon,
+                      "completion_status": "In-Progress",
+                      "time_placed": today,
+                      "time_delivered": today
+           });{/*.then(response) => {
+                console.log(response);
+            };*/}
         
-                  "user_id": "string",
-                  "drone_id": "string",
-                  "items": [
-                    "donut"
-                  ],
-                  "destination_lat": this.state.location_lat,
-                  "destination_lon": this.state.location_lon,
-                  "completion_status": "In-Progress",
-                  "time_placed": "2019-02-26T05:50:28.279Z",
-                  "time_delivered": "2019-02-26T05:50:28.279Z"
-       });{/*.then(response) => {
-            console.log(response);
-        };*/}
-        alert('Your Order Has Been Placed! \nReturn to the menu to place another.');
-        console.log('pop up should have been made');
         {/*window.alert('Your Order Has Been Placed');*/}
     }
     render(){
         return (
         <form onSubmit={this.formSubmitHandler}>
         <label>
-          Delivery Address
+          Your Name:
+          <input
+            name="customer_name"
+            type="string"
+            value={this.state.customer_name}
+            onChange={this.handleInputChange} />
+        
+        </label>
+        <br />
+        <label>
+          Delivery Address:
           <input
             name="location_string"
             type="string"
@@ -141,6 +186,7 @@ class Order extends React.Component {
            class="btn btn-primary"
            onClick={this.formSubmitHandler}
           >Submit</button>
+          <br />
          <a role="button" className="btn btn-primary"  href="/menu"> Return to Menu </a>
           
       </form>
