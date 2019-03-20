@@ -77,11 +77,11 @@ class Order extends React.Component {
             console.log(error);
         });
 
-        //probably want to choose drone here 
-        //use 69 as place holder until
+        // choose drone here 
+        //use 7 as place holder until
         var dronesAvailible = [];
         var droneID = 7;
-        axios.get('http://drones.17-356.isri.cmu.edu/api/airbases/team3',{
+        axios.get('http://drones.17-356.isri.cmu.edu/api/airbases/group3',{
                 id : 'group3'
         }).then(function (response){
             console.log(response);
