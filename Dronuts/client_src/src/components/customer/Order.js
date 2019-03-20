@@ -16,7 +16,7 @@ class Order extends React.Component {
             //it appears as if the credit api only takes in a number as a string
             card_number : '',
             customer_name : '',
-            drone_id : '70'
+            drone_id : '7'
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.formSubmitHandler = this.formSubmitHandler.bind(this);
@@ -80,9 +80,9 @@ class Order extends React.Component {
         //probably want to choose drone here 
         //use 69 as place holder until
         var dronesAvailible = [];
-        var droneID = 69;
+        var droneID = 7;
         axios.get('http://drones.17-356.isri.cmu.edu/api/airbases/team3',{
-                id : 'team3'
+                id : 'group3'
         }).then(function (response){
             console.log(response);
             dronesAvailible = response.data.drones;       
