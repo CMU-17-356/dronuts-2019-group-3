@@ -5,8 +5,9 @@ This is Group 3's project for CMU's Software Engineering for Startups class (17-
 ## How to run the application for...
 ### Development
 
-To run the application in development mode, run the following code from the root directory:
+To run the application in development mode, run the following code from the Dronuts directory:
 
+    > $ npm install
     > $ npm start
 
 ### Production
@@ -18,7 +19,7 @@ To run the application in production mode, we first need to build a docker conta
 
 ## Testing with Travis CI
 
-TravisCI runs with the script found in .travisyml from the root directory. It runs automatically when changes are pushed to Git.
+TravisCI runs with the script found in .travis.yml from the root directory. It runs automatically when changes are pushed to Git.
 
 ## Deploying on Azure VM
 
