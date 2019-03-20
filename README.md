@@ -1,5 +1,5 @@
 # Dronuts
-###Ryan Barrett, Derek Yan, Judy Zhang
+### Ryan Barrett, Derek Yan, Judy Zhang
 This is Group 3's project for CMU's Software Engineering for Startups class (17-356). This readme will describe how to run and test the Dronuts application.
 
 ## How to run the application for...
@@ -28,7 +28,7 @@ Azure is also connected to Git and automatically deploys changes to the applicat
 
 To run the linter [eslint-watch](https://www.npmjs.com/package/eslint-watch) to check for style consistencies, run the following code from the Dronuts directory:
 
-   > $ npm run lint (## which is calling esw -w src test)
+    > $ npm run lint
 
 We used [Jest](https://jestjs.io/) as our testing framework. To run test for the code, run the following code from the root directory:
 
